@@ -3,7 +3,7 @@ package org.example.model
 open class UrbanParkException(mensaje: String):
         Exception(mensaje)
 
-open class PatenteInvalidaExcepcion(patente: String):
+open class PatenteInvalidaException(patente: String):
         UrbanParkException("Patente inálida '${patente}'. Formato esperado: dos letras, dos digitos, dos letras (Ejemplo: AB12CD).")
 
 class TipoClienteInvalidoException(valor: String):

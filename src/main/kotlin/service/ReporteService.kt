@@ -17,7 +17,7 @@ class ReporteService(
         val abonados = consultas.vehiculosAbonados()
         if (abonados.isEmpty()) println("   (ninguno)")
         abonados.forEach{println("  -${it.detalle()}")}
-        println("3. Ingreso promedio por vehiculo: $${"%2f".format(consultas.ingresoPromedio())}")
+        println("3. Ingreso promedio por vehiculo: $${"%.2f".format(consultas.ingresoPromedio())}")
         println("4. Patentes que han salido: ${consultas.patentesSalidas().joinToString(", ")}")
         val masTiempo = consultas.ticketMasTiempo()
         if (masTiempo != null){
@@ -33,6 +33,12 @@ class ReporteService(
 
     fun mostrarReporteCierre(){
         val estacionamiento = consultas.estacionamiento
+        println("Reporte de cierre de turno - ${estacionamiento.nombre}")
+
+        for (ticket in estacionamiento.historial){
+            println(ticket.detalle())
+        }
+
         println("Total recaudado: $${"%.2f".format(consultas.recaudacionTotal())}")
         println("Vehículos atendidos: ${estacionamiento.historial.size}")
         println("Ingreso promedio: $${"%.2f".format(consultas.ingresoPromedio())}")

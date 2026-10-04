@@ -1,6 +1,6 @@
 package org.example.service
 
-import org.example.model.PatenteInvalidaExcepcion
+import org.example.model.PatenteInvalidaException
 
 fun esPatenteValida(patente: String): Boolean{
     if (patente.length != 6) return false
@@ -13,5 +13,5 @@ fun esPatenteValida(patente: String): Boolean{
 }
 
 fun validarPatente(patente: String){
-    if (!esPatenteValida(patente)) throw PatenteInvalidaExcepcion(patente)
+    if (!esPatenteValida(patente)) throw PatenteInvalidaException(patente)
 }
